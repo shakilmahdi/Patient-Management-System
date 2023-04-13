@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}House{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logged in user</title>
+  <style>
+    body {
+      background-image: url('https://images.livemint.com/img/2020/11/02/1600x900/f66cc8ea-1c49-11eb-bc9e-0600cc8b99a5_1604278803374_1604278904326.jpg');
+    }
+    </style>
+</head>
+<body>
+    <br>
+    WellCome to Home Patient Module<br>
+  
+    {% block content %}
+    <br>
+    {% comment %} <div class ="row">
+        <div class ="col">
+            <div class = "card card-body">
+                <form method="post">
+                    {{myFilter.form}}
+  
+                <button class ="btn btn-primary" type-"submit">
+                    Search</button>
+                </form>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <form method ="POST">
+    from:<input type="date" name="fromdate"/>
+    To : <input type="date" name="todate"/>
+    <input type="submit" value="Search"/>
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <div class="card card0body">
+                <a  class ="btn btn-sm btn-success"href="/HomePatient"><h5>Add a New Patient</h5></a>
+            </div>
+           
+                    
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+
+                        <th>Home Patient(Name)</th>
+                        <th>Contact</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Blood Group</th>
+                        <th>Symptom</th>
+                        <th>Register Date</th>
+                  
+                    </tr>
+                    {% for vai in  HomePatient %}
+                    <tr>
+                        <td>{{vai.patient_name}}</td>
+                        <td>{{vai.patient_phone}}</td>
+                        <td>{{vai.patient_gender}}</td>
+                        <td>{{vai.patient_age}}</td>
+                        <td>{{vai.patient_blood_group}}</td>
+                        <td>{{vai.patient_description}}</td>
+                        <td>{{vai.patient_date}}</td>
+                        <th><a class ="btn btn-sm btn-info"href="">Edit</th>
+                        <th><a class ="btn btn-sm btn-danger"href="">Delete</th>
+                        <th><a class ="btn btn-sm btn-info"href="/report">Report</th>
+                        <th><a class ="btn btn-sm btn-success"href="/Online_appointment">Appointment</th>
+                           
+                       
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</form>
+{% endblock content%}   
+
+
+  
+<br><a class ="btn btn-sm btn-info" href="/appointment">Go back</a><br><nr>
+    <br><a class ="btn btn-sm btn-danger" href="/logout">logout</a><br>
+    <br>
+</body>
+</html>
+{% endblock body %}

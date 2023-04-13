@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}aboutpage{% endblock title %}
+{% block body %}
+
+<h1 {text-align: center;}></h1>
+<head>
+    <style>
+    h1 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+    </style>
+</head>
+<body>
+    
+    <h1><br><br>Congratulatios!! <br></h1>
+       <p> We got youur information<br>
+        Your Appointment is ready as per your information...<br>
+        We will sent your serial number and appointment time over the phone message..<br>
+        We will get back to you very soon<br><br></p>
+        <p> <b>Appointment Slip......
+            <br>Patient Name:</b>{{ OutdoorDoctor.name }}
+            <br><b>Patient Contact:</b>{{ OutdoorDoctor.phone }}
+            <br><b>Doctor:</b>{{ OutdoorDoctor.doctor }}
+            <br><b>Appointment Date:</b>{{ OutdoorDoctor.date }}
+            <br><b>Serial:</b>{{ OutdoorDoctor.id }}
+            
+        {% comment %} <div class="card card-body"> {% endcomment %}
+    
+
+    {% comment %} {% block content %}
+
+        <div class="card card-body">
+        
+            <table class="table">
+                <tr>
+
+                    <th>OutDoor Patient (Name)</th>
+                    <th>Contact</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                </tr>  
+                {% for vai in OutdoorDoctor %}
+                <tr>
+                    <td>{{vai.name}}</td>
+                    <td>{{vai.phone}}</td>
+                    <td>{{vai.gender}}</td>
+                    <td>{{vai.age}}</td>
+                    <td>{{vai.doctor}}</td>
+                    <td>{{vai.date}}</td>
+                    <td><a class ="btn btn-sm btn-info" href="update_outdoor/{{ vai.id }}">Update</a></td>
+                    <td><a class ="btn btn-sm btn-danger" href="delete_outdoor/{{ vai.id }}">delete</a></td>
+                           
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+       
+    {% endblock content%}                      {% endcomment %}
+
+       
+ 
+   
+    
+</body>
+
+
+{% endblock body %}
+
+

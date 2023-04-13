@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}appointment{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logged in user</title>
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  Cogratulations !!!!!!<br><br>
+  Thank You so much for your time sir, We got your information <br> <br>
+  Click the below option for more appointment...<br><br><br><br><br>
+  {% comment %} {{ request.user}} {% endcomment %}
+  
+  {% comment %} <a href="/HomePatient">New appointment</a> {% endcomment %}
+  <div class="row">
+    <div class="form-group col-md-12">
+       
+        <div class="row">
+          <div class="col-md-4"><a href="/IndoorAdmission" class="btn btn-success ">New Patient Admission</a></div><div class="col-md-4"><a href="/HomePatient" class="btn btn-success ">Online Doctor</a></div><div class="col-md-4"><a href="/OutdoorDoctor" class="btn btn-success ">Outdoor Appointment</a></div><div class="col-md-5"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock body %}
+
+
+

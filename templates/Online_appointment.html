@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}House{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report</title>
+</head>
+<body>
+    <br>
+  
+    <br><a class ="btn btn-sm btn-danger" href="/logout">logout</a><br>
+    <br>
+    {% block content %}
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <div class="card card0body">
+                <a  class ="btn btn-sm btn-info"href=""><h5>Your Appointment</h5></a><br>
+                <a  class="btn btn-success"href="/HomePatientAppointment"><h5>Get New Appointment</h5></a>
+            </div>
+           
+                    
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+
+                        <th>Appointment Date</th>
+                        <th>Nurse</th>
+                        <th>Doctor</th>
+                     
+                  
+                    </tr>
+                    {% for vai in  new2 %}
+                    <tr>
+                        <td>{{vai.ap_date}}</td>
+                        <td>{{vai.ap_name}}</td>
+                        <td>{{vai.ap_doctor}}</td>
+                      
+                        <th><a class ="btn btn-sm btn-info"href="">Edit</th>
+                        <th><a class ="btn btn-sm btn-danger"href="">Delete</th>
+                        
+                           
+                       
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            
+        </div>
+    </div>
+{% endblock content%}   
+<br><a class ="btn btn-sm btn-info" href="/housePatient">Go back</a><br><nr>
+  
+</body>
+</html>
+{% endblock body %}

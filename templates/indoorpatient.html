@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}House{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logged in user</title>
+  <style>
+    h1 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+   
+        body {
+          background-image: url('https://www.utoronto.ca/sites/default/files/iStock-1038799594_0.jpg');
+        }
+       
+    </style>
+</head>
+  WellCome To indoor Segment
+  <br>
+  <br>
+  {% comment %} <div class ="row">
+      <div class ="col">
+          <div class = "card card-body">
+              <form method="post">
+                  {{myFilter.form}}
+
+              <button class ="btn btn-primary" type-"submit">
+                  Search</button>
+              </form>
+          </div>
+      </div>
+  </div> {% endcomment %}
+  from:<input type="date" name="fromdate"/>
+  To : <input type="date" name="todate"/>
+  <input type="submit" value="Search"/>
+</br>       
+
+  <br>
+
+{% block content %}
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <div class="col-md">
+                <div class="card card0body">
+                    <a  class="btn btn-success"href="/IndoorAdmission"><h5>Add a New Patient</h5></a>
+                </div>
+ 
+                <div class="card card-body">
+                    <table class="table">
+                        <tr>
+    
+                            <th>Admitted Patient (Patient ID)</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Contact</th>
+                            <th>Doctor</th>
+                            <th>Admission Date</th>
+                            
+                        </tr>
+                        {% for vai in IndoorAdmission %}
+                        <tr>
+                            <td>{{vai.indoor_treatment_patient_id}}</td>
+                            <td>{{vai.patient_name}}</td>
+                            <td>{{vai.patient_gender}}</td>
+                            <td>{{vai.patient_age}}</td>
+                            <td>{{vai.patient_phone}}</td>
+                            <td>{{vai.indoor_patient_doctor_doctor_id}}</td>
+                            <td>{{vai.indoor_patient_bed_entry_time}}</td>
+                            <td><a class ="btn btn-sm btn-info" href="update_indoor/{{ vai.id }}">Update</a></td>
+                            <td><a class ="btn btn-sm btn-danger" href="delete_indoor/{{ vai.id }}">delete</a></td>
+                            <td><a class ="btn btn-success" href="discharge_patient/{{ vai.id }}">Discharge </a></td>      
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            
+        </div>
+    </div>
+{% endblock content%}   
+
+<br><a class ="btn btn-sm btn-danger" href="/logout">logout</a><br><nr>
+
+<p><br><a class="btn btn-success" href="/appointment">Go back</a><br><nr></p>
+
+</body>
+</html>
+{% endblock body %}
